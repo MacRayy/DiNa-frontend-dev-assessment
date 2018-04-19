@@ -1,13 +1,14 @@
 'use strict'
 
-const UIController = function () {
+const UIController = function (users) {
 	const DOMStrings = {
 		userList: '.user-list',
 		prevBtn: '.btn-prev',
-		nextBtn: '.btn-next'
+		nextBtn: '.btn-next',
+		statusBtn: '.btn-change-status'
 	}
 
-	const displayUsers = (users) => {
+	const userController = (users) => {
 		const userList = document.querySelector(DOMStrings.userList)
 		const prevButton = document.querySelector(DOMStrings.prevBtn)
 		const nextButton = document.querySelector(DOMStrings.nextBtn)
@@ -22,8 +23,14 @@ const UIController = function () {
 
 			tenUsers.forEach((user, i) => {
 				const li = document.createElement('li')
+				const changeStatusBtn = document.createElement('button')
+				changeStatusBtn.setAttribute('class', 'btn-change-status')
+
 				userList.appendChild(li).setAttribute('class', `user-${i + 1}`)
-				document.querySelector(`.user-${i + 1}`).innerHTML = `${user.first_name} ${user.last_name} was created at ${user.created_at}`
+
+				let DOMUser = document.querySelector(`.user-${i + 1}`)
+				DOMUser.innerHTML = `${user.first_name} ${user.last_name} was created at ${user.created_at}`
+				DOMUser.appendChild(changeStatusBtn).innerHTML = 'change status'
 			})
 		}
 
@@ -51,7 +58,7 @@ const UIController = function () {
 
 	return {
 		DOMStrings,
-		displayUsers
+		userController
 	}
 }
 
