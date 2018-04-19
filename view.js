@@ -1,6 +1,6 @@
 'use strict'
 
-const UIController = function (users) {
+const UIController = function(users) {
 	const DOMStrings = {
 		userList: '.user-list',
 		prevBtn: '.btn-prev',
@@ -8,7 +8,7 @@ const UIController = function (users) {
 		statusBtn: '.btn-change-status'
 	}
 
-	const userController = (users) => {
+	const userController = users => {
 		const userList = document.querySelector(DOMStrings.userList)
 		const prevButton = document.querySelector(DOMStrings.prevBtn)
 		const nextButton = document.querySelector(DOMStrings.nextBtn)
@@ -29,7 +29,9 @@ const UIController = function (users) {
 				userList.appendChild(li).setAttribute('class', `user-${i + 1}`)
 
 				let DOMUser = document.querySelector(`.user-${i + 1}`)
-				DOMUser.innerHTML = `${user.first_name} ${user.last_name} was created at ${user.created_at}`
+				DOMUser.innerHTML = `${user.first_name} ${
+					user.last_name
+				} was created at ${user.created_at}`
 				DOMUser.appendChild(changeStatusBtn).innerHTML = 'change status'
 			})
 		}
