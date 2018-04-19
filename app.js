@@ -1,15 +1,15 @@
 'use strict'
 
 import createAjax from './ajax.js'
+import UIController from './view.js'
 
 const App = function () {
 	const req = createAjax()
+	const UICtrl = UIController()
 
-	const logUsers = (resp) => {
-		console.log(resp)
-	}
+	const DOM = UIController.DOMStrings
 
-	let users = req.ajax('http://js-assessment-backend.herokuapp.com/users', 'GET', logUsers)
+	req.ajax('http://js-assessment-backend.herokuapp.com/users', 'GET', UICtrl.displayUsers)
 }
 
 App()
