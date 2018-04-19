@@ -1,0 +1,24 @@
+{
+  "name": "dina-frontend-dev-assessment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "babel-node test.js | faucet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MacRayy/DiNa-frontend-dev-assessment.git"
+  },
+  "author": "Zsolt Makrai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MacRayy/DiNa-frontend-dev-assessment/issues"
+  },
+  "homepage": "https://github.com/MacRayy/DiNa-frontend-dev-assessment#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^8.0.0",
+    "tape": "^4.9.0"
+  }
+}
