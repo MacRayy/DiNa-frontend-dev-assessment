@@ -24,7 +24,9 @@ const App = function () {
 		req.ajax('http://js-assessment-backend.herokuapp.com/users', 'PUT', render)
 	}
 
-	req.ajax('http://js-assessment-backend.herokuapp.com/users', 'GET', render)
+	req.ajax('http://js-assessment-backend.herokuapp.com/users', 'GET').then(
+    render
+	)
 }
 
 App()
