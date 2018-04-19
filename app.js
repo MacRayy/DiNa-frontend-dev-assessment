@@ -9,25 +9,23 @@ const App = function() {
 
 	const DOM = UICtrl.DOMStrings
 
-	const render = response => {
+	const getUsers = response => {
 		UICtrl.userController(response)
 
 		setUpEventListeners()
 	}
 
 	const setUpEventListeners = () => {
-		document
-			.querySelector(DOM.statusBtn)
-			.addEventListener('click', changeStatus)
+		const DOMUSers = Array.from(document.querySelectorAll(DOM.statusBtn))
+		DOMUSers.forEach(user => user.addEventListener('click', changeStatus))
 	}
 
 	const changeStatus = () => {
 		console.log('change status')
 	}
 
-	req
-		.ajax('http://js-assessment-backend.herokuapp.com/users', 'GET')
-		.then(render)
+	req.ajax('http://js-assessment-backend.herokuapp.com/users', 'GET')
+		.then(getUsers)
 }
 
 App()

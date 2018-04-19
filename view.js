@@ -1,6 +1,6 @@
 'use strict'
 
-const UIController = function(users) {
+const UIController = function() {
 	const DOMStrings = {
 		userList: '.user-list',
 		prevBtn: '.btn-prev',
@@ -29,9 +29,7 @@ const UIController = function(users) {
 				userList.appendChild(li).setAttribute('class', `user-${i + 1}`)
 
 				let DOMUser = document.querySelector(`.user-${i + 1}`)
-				DOMUser.innerHTML = `${user.first_name} ${
-					user.last_name
-				} was created at ${user.created_at}`
+				DOMUser.innerHTML = `${user.first_name} ${user.last_name} was created at ${user.created_at}`
 				DOMUser.appendChild(changeStatusBtn).innerHTML = 'change status'
 			})
 		}
